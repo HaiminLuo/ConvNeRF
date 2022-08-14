@@ -1,0 +1,73 @@
+SOLVER:
+  OPTIMIZER_NAME: "Adam"
+  BASE_LR: 0.0006
+  WEIGHT_DECAY: 0. # 0.0000001
+  IMS_PER_BATCH: 1
+  START_ITERS: 2000
+  END_ITERS: 50000
+  LR_SCALE: 0.08
+  WARMUP_ITERS: 1000
+
+  LOSS_FN: "L2"    # L1 or L2
+
+  MAX_EPOCHS: 200
+  CHECKPOINT_PERIOD: 3000
+  LOG_PERIOD: 30
+  BUNCH: 60000
+  BATCH_SIZE: 12 # patch number in a mini batch
+  COARSE_STAGE: 0
+
+INPUT:
+  SIZE_TRAIN: [800,500]
+  SIZE_TEST: [800,500]
+
+DATASETS:
+  TYPE: "NR" # "NR"   "LLFF"
+  SYNTHESIS: True
+
+  TRAIN: "/data/new_disk2/lhm/hair_dataset/Wolf_train"
+  TEST: "/data/new_disk2/lhm/hair_dataset/Wolf_test"
+
+  NUM_FRAME: 1
+  SHIFT: 0.0
+  MAXRATION: 0.0
+  ROTATION: 0.0
+
+  USE_MASK: False
+  USE_DEPTH: True
+  USE_ALPHA: True
+  USE_BG: False
+  NUM_CAMERA: 999
+
+  NO_BOUNDARY: False
+  BOUNDARY_WIDTH: 5
+
+  PATCH_SIZE: 32 # 32
+  KEEP_BG: False
+
+MODEL:
+  COARSE_RAY_SAMPLING: 32
+  FINE_RAY_SAMPLING: 32
+  SAMPLE_METHOD: "DEPTH"
+  BOARDER_WEIGHT: 1e-10
+
+  SAME_SPACENET: False
+  TKERNEL_INC_RAW: True
+  ENCODE_POS_DIM: 20
+  ENCODE_DIR_DIM: 4
+  KERNEL_TYPE: "POS"
+
+  DEPTH_FIELD: 1.0
+  DEPTH_RATIO: 0.05  # samples number out of coarse geometry proxy
+  SAMPLE_INF: False
+
+  NOISE_STD: 0.1
+
+TEST:
+  IMS_PER_BATCH: 1
+
+OUTPUT_DIR: "/data/new_disk2/lhm/NR/CRF/wolf_test1"
+
+
+
+
