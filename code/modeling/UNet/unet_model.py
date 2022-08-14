@@ -144,7 +144,3 @@ class PatchFeaDirUNet(nn.Module):
         x_alpha = self.outc2(x7)
 
         return torch.cat([x_rgb, x_alpha], dim=1)
-
-# if __name__=="__main__":
-#     unet = PatchUNet(4, 3, 1)
-#     t = torch.ones([32, 4, 16, 16])

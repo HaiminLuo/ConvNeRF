@@ -1,7 +1,7 @@
 # encoding: utf-8
 """
-@author:  Minye Wu
-@GITHUB: wuminye
+@author:  Haimin Luo
+@email: luohm@shanghaitech.edu.cn
 """
 
 from torch.utils import data
@@ -13,9 +13,6 @@ from .transforms import build_transforms
 
 def build_dataset(data_folder_path, transforms, bunch, use_mask, num_frame,
                   use_depth, data_type, no_boundary, b_width, use_alpha, patch_size, keep_bg, use_bg, synthesis, cam_num):
-    # datasets = IBRay_NHR(data_folder_path, transforms=transforms, bunch=bunch, use_mask=use_mask, num_frame=num_frame,
-    #                      use_depth=use_depth, data_type=data_type, no_boundary=no_boundary, boundary_width=b_width,
-    #                      use_alpha=use_alpha)
     datasets = IBRay_NHR_Patch(data_folder_path, transforms=transforms, use_mask=use_mask, num_frame=num_frame,
                                use_depth=use_depth, data_type=data_type, no_boundary=no_boundary,
                                boundary_width=b_width, use_alpha=use_alpha, patch_sizes=patch_size, keep_bg=keep_bg,
@@ -39,7 +36,6 @@ def make_data_loader(cfg, is_train=True):
     if is_train:
         shuffle = True
     else:
-        # batch_size = cfg.TEST.IMS_PER_BATCH
         shuffle = False
 
     transforms = build_transforms(cfg, is_train)

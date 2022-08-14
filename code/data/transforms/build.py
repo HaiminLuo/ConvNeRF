@@ -1,7 +1,7 @@
 # encoding: utf-8
 """
-@author:  sherlock
-@contact: sherlockliao01@gmail.com
+@author:  Haimin Luo
+@email: luohm@shanghaitech.edu.cn
 """
 
 import torchvision.transforms as T
@@ -16,15 +16,7 @@ def build_transforms(cfg, is_train=True):
 
         transform = Random_Transforms((cfg.INPUT.SIZE_TRAIN[1], cfg.INPUT.SIZE_TRAIN[0]), cfg.DATASETS.SHIFT,
                                       cfg.DATASETS.MAXRATION, cfg.DATASETS.ROTATION)
-        # transform = T.Compose([
-        #    T.Resize((cfg.INPUT.SIZE_TRAIN[1], cfg.INPUT.SIZE_TRAIN[0])),
-        #    T.ToTensor()
-        # ])
     else:
         transform = Random_Transforms((cfg.INPUT.SIZE_TEST[1], cfg.INPUT.SIZE_TEST[0]), 0)
-        # transform = T.Compose([
-        #    T.Resize((cfg.INPUT.SIZE_TEST[1], cfg.INPUT.SIZE_TEST[0])),
-        #    T.ToTensor()
-        # ])
 
     return transform

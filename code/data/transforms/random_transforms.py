@@ -1,7 +1,7 @@
 # encoding: utf-8
 """
-@author:  sherlock
-@contact: sherlockliao01@gmail.com
+@author:  Haimin Luo
+@email: luohm@shanghaitech.edu.cn
 """
 
 import torchvision.transforms as T
