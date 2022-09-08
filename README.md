@@ -92,8 +92,16 @@ python render.py --config $OUTPUTDIR/configs.yml --ckpt $OUTPUTDIR/rfnr_checkpoi
 
 `RENDERING_DIR` is the path to save renderings. The renderings should be around-view videos and corresponding images of each frame. 
 
+## Validation
+Load our pre-trained models or re-trained models, render views in testing dataset and compute evaluation metric, e.g., psnr:
+```
+cd code/tools/
 
-## Training with your ouwn data
+python test.py --config $OUTPUTDIR/configs.yml --ckpt $OUTPUTDIR/rfnr_checkpoint_147000.pt --cam_pose $PATH_TO_DATASET/CamPose_spiral.inf --intrinsic $PATH_TO_DATASET/Intrinsic_spiral.inf --gpu_id 1 --out_dir $RENDERING_DIR --dataset_val_path $PATH_TO_VAL_DATASET 
+```
+`PATH_TO_VAL_DATASET` is the root directory of testing dataset, e.g., `Hair_test`.
+
+## Training with your own data
 Prepare your data as follow:
 ```
 root directory
