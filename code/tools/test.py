@@ -114,7 +114,7 @@ mse2psnr = lambda x : -10. * torch.log(x) / torch.log(torch.Tensor([10.]))
 
 psnrs_rgb, psnrs_alpha = [], []
 
-for i in tqdm(range(len(dataset_val))):
+for i in tqdm(range(len(dataset_val.NHR_dataset))):
     img_raw, _, _, T, K, _, _ = dataset_val.NHR_dataset.__getitem__(i)  
     rgb_gt = img_raw[:3, ...].permute(1, 2, 0)
     alpha_gt = img_raw[6:7, ...].permute(1, 2, 0).repeat(1, 1, 3)
