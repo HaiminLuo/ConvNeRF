@@ -97,7 +97,7 @@ Load our pre-trained models or re-trained models, render views in testing datase
 ```
 cd code/tools/
 
-python test.py --config $OUTPUTDIR/configs.yml --ckpt $OUTPUTDIR/rfnr_checkpoint_147000.pt --cam_pose $PATH_TO_DATASET/CamPose_spiral.inf --intrinsic $PATH_TO_DATASET/Intrinsic_spiral.inf --gpu_id 1 --out_dir $RENDERING_DIR --dataset_val_path $PATH_TO_VAL_DATASET 
+python test.py --config $OUTPUTDIR/configs.yml --ckpt $OUTPUTDIR/rfnr_checkpoint_147000.pt --gpu_id 1 --out_dir $RENDERING_DIR --dataset_val_path $PATH_TO_VAL_DATASET 
 ```
 `PATH_TO_VAL_DATASET` is the root directory of testing dataset, e.g., `Hair_test`.
 
